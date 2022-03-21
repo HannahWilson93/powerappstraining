@@ -207,3 +207,12 @@ Screen1 As screen:
         Y: =684
         ZIndex: =17
 
+    Label1 As label:
+        Height: =87
+        Size: =28
+        Text: ="Adding for repo commit"
+        Width: =482
+        X: =724
+        Y: =622
+        ZIndex: =18
+
