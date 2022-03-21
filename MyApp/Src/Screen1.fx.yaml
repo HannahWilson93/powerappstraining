@@ -1,0 +1,209 @@
+Screen1 As screen:
+
+    lblName As label:
+        Text: |-
+            ="Name:"
+        X: =40
+        Y: =40
+        ZIndex: =1
+
+    "Gallery1 As gallery.'BrowseLayout_Vertical_TwoTextVariant_ver4.0'":
+        Height: =436
+        Items: =ContactInfo
+        Layout: =Layout.Vertical
+        TemplatePadding: =0
+        TemplateSize: =Min(104, Self.Height - 60)
+        Width: =370
+        X: =812
+        Y: =83
+        ZIndex: =1
+
+        Title2 As label:
+            Height: =Self.Size * 1.8
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.Name
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Parent.TemplateWidth - 104
+            X: =32
+            Y: =16
+            ZIndex: =1
+
+        Subtitle2 As label:
+            Height: =Self.Size * 1.8
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.Phone
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Parent.TemplateWidth - 104
+            X: =32
+            Y: =Title2.Y + Title2.Height + 4
+            ZIndex: =2
+
+        NextArrow2 As icon.ChevronRight:
+            AccessibleLabel: =Self.Tooltip
+            Height: =60
+            Icon: =Icon.ChevronRight
+            OnSelect: =Select(Parent)
+            PaddingBottom: =10
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =10
+            TabIndex: =0
+            Tooltip: ="View item details"
+            Width: =60
+            X: =Parent.TemplateWidth - Self.Width - 5
+            Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+            ZIndex: =3
+
+        Separator2 As rectangle:
+            Height: =1
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - 1
+            ZIndex: =4
+
+        Icon1 As icon.Trash:
+            Height: =40
+            Icon: =Icon.Trash
+            OnSelect: =Remove(ContactInfo,ThisItem)
+            Width: =57
+            X: =248
+            Y: =32
+            ZIndex: =5
+
+    lblPhoneNumber As label:
+        Text: |-
+            ="Phone Number:"
+        X: =40
+        Y: =106
+        ZIndex: =2
+
+    lblComments As label:
+        Text: |-
+            ="Comments:"
+        X: =40
+        Y: =173
+        ZIndex: =3
+
+    txtName As text:
+        Default: =
+        X: =190
+        Y: =40
+        ZIndex: =4
+
+    txtPhoneNumber As text:
+        Default: =
+        X: =190
+        Y: =106
+        ZIndex: =5
+
+    txtComments As text:
+        Default: =
+        X: =190
+        Y: =173
+        ZIndex: =6
+
+    Button1 As button:
+        Height: =37
+        OnSelect: |-
+            =Collect(ContactInfo, {Name: txtName.Text, Phone: txtPhoneNumber.Text, Comments: txtComments.Text})
+        Text: ="Add to collection"
+        Width: =231
+        X: =234
+        Y: =283
+        ZIndex: =7
+
+    Button1_1 As button:
+        Height: =37
+        OnSelect: =Clear(ContactInfo)
+        Text: ="Clear Collection"
+        Width: =231
+        X: =234
+        Y: =343
+        ZIndex: =8
+
+    Label4 As label:
+        FontWeight: =Bold
+        Height: =61
+        Size: =36
+        Text: ="Item Details"
+        Width: =323
+        X: =22
+        Y: =429
+        ZIndex: =9
+
+    lblName_1 As label:
+        Text: |-
+            ="Name:"
+        X: =40
+        Y: =490
+        ZIndex: =10
+
+    lblPhoneNumber_1 As label:
+        Text: |-
+            ="Phone Number:"
+        X: =40
+        Y: =564
+        ZIndex: =12
+
+    lblComments_1 As label:
+        Text: |-
+            ="Comments:"
+        X: =40
+        Y: =641
+        ZIndex: =14
+
+    Icon2 As icon.Edit:
+        Height: =40
+        Icon: =Icon.Edit
+        OnSelect: =Set(Edit, true)
+        Width: =45
+        X: =441
+        Y: =681
+        ZIndex: =16
+
+    grpInput As group:
+        Height: =5
+        Width: =5
+        X: =60
+        Y: =60
+        ZIndex: =16
+
+        txtName2 As text:
+            Default: =Gallery1.Selected.Name
+            DisplayMode: =If(Edit = true, DisplayMode.Edit, DisplayMode.View)
+            X: =40
+            Y: =524
+            ZIndex: =11
+
+        txtPHone2 As text:
+            Default: =Gallery1.Selected.Phone
+            DisplayMode: =If(Edit = true, DisplayMode.Edit, DisplayMode.View)
+            X: =40
+            Y: =601
+            ZIndex: =13
+
+        txtComments2 As text:
+            Default: =Gallery1.Selected.Comments
+            DisplayMode: =If(Edit = true, DisplayMode.Edit, DisplayMode.View)
+            X: =40
+            Y: =681
+            ZIndex: =15
+
+    Button2 As button:
+        Height: =37
+        OnSelect: |-
+            =Patch(ContactInfo, Gallery1.Selected, {Name:txtName2.Text, Phone: txtPHone2.Text, Comments: txtComments2.Text})
+        Text: ="Save"
+        Width: =102
+        X: =510
+        Y: =684
+        ZIndex: =17
+
