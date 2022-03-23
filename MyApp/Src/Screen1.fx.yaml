@@ -107,7 +107,7 @@ Screen1 As screen:
     txtComments As text:
         Default: =
         X: =190
-        Y: =173
+        Y: =200
         ZIndex: =6
 
     Button1 As button:
