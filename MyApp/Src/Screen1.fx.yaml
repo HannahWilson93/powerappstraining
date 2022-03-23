@@ -15,7 +15,7 @@ Screen1 As screen:
         TemplateSize: =Min(104, Self.Height - 60)
         Width: =370
         X: =812
-        Y: =83
+        Y: =100
         ZIndex: =1
 
         Title2 As label:
